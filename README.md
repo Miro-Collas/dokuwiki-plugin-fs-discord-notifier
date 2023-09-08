@@ -20,3 +20,7 @@ Download the latest release from [Tags] page and install the plugin using the
 1. Create an Incoming Webhook on slack: https://api.slack.com/messaging/webhooks#create_a_webhook
 
 2. Enter the webhook into the slacknotifier configuration section in DokuWiki's Configuration Settings
+
+## Discord
+
+This plugin will work for discord as well, if you append /slack to the discord webhook url; see https://birdie0.github.io/discord-webhooks-guide/other/slack_formatting.html 
