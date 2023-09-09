@@ -35,7 +35,7 @@ class Formatter
             if ($oldRev) {
                 $diffURL = $this->buildUrl($page, $event->newRevision, $event->oldRevision);
                 // $title .= " (<{$diffURL}|Compare changes>)";
-                $title .= " ([Compare changes]({$diffURL}))";
+                $title .= " ([Compare changes]({$diffURL})";
             }
         }
         $footer = array ( "text" => "Dokuwiki FS DiscordNotifier" );
