@@ -6,4 +6,4 @@ $lang['notify_edit'] = 'Notify when pages are edited';
 $lang['notify_edit_minor'] = 'Notify when pages are edited even with minor changes tag';
 $lang['notify_delete'] = 'Notify when pages are deleted';
 $lang['show_summary'] = 'Show summary if one exists';
-$lang['webhook'] = 'Slack Incoming Webhook URL';
+$lang['webhook'] = 'Discord Incoming Webhook URL';
