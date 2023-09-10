@@ -10,7 +10,7 @@ Download from the repo, install manually into Dokuwiki.
 
 1. Create an Incoming Webhook on discord: https://docs.gitlab.com/ee/user/project/integrations/discord_notifications.html
 2. Enter the webhook into the fsdiscordnotifier configuration section in DokuWiki's Configuration Settings
-3. If you wish to incldue the root namespace for notifications, then spacify a : (colon) in the namespaces field
+3. If you wish to include the root namespace for notifications, then specify a : (colon) in the namespaces field
 
 ## Credits
 - [zteeed](https://github.com/zteeed0 for [discord-notifier](https://github.com/zteeed/dokuwiki-discord-notifier), which is what our team initially used, and from which some code was borrowed.
