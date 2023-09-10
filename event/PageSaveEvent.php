@@ -1,6 +1,6 @@
 <?php
 
-namespace dokuwiki\plugin\slacknotifier\event;
+namespace dokuwiki\plugin\fsdiscordnotifier\event;
 
 use InvalidArgumentException;
 
