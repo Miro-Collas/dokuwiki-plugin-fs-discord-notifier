@@ -135,42 +135,22 @@ class action_plugin_slacknotifier extends ActionPlugin
 
         return false;
     }
+
     private function submitPayload(string $url, array $payload): void
     {
+        $http = new DokuHTTPClient();
+        $http->headers['Content-Type'] = 'application/json';
+        // we do single ops here, no need for keep-alive
+        $http->keep_alive = false;
 
-        global $conf;
-        $payload = json_encode($payload);
-        $ch = curl_init($url);
-        $proxy = $conf['proxy'];
-
-        if (!empty ($proxy['host'])) {
-            $proxyAddress = $proxy['host'] . ':' . $proxy['port'];
-            curl_setopt($ch, CURLOPT_PROXY, $proxyAddress );
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            if (!empty($proxy['user']) && !empty ($proxy['pass'])) {
-                $proxyAuth = $proxy['user'] . ':' . conf_decodeString($proxy['port']);
-                curl_setopt ($ch, CURLOPT_PROXYUSERPWD, $proxyAuth);
-            }
+        $result = $http->post($url, ['payload' => json_encode($payload)]);
+        if ($result !== 'ok') {
+            $ctx = [
+                'resp_body' => $http->resp_body,
+                'result' => $result,
+                'http_error' => $http->error,
+            ];
+            Logger::error('Error posting to Slack', $ctx, __FILE__, __LINE__);
         }
-
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Content-type: application/json',
-            'Content-length: ' . strlen($payload)
-        ]);
-        $result = curl_exec($ch);
-
-        if ($result === false) {
-            Logger::error('Error posting to Slack', [
-                'resp_body' => curl_error($ch),
-                'result' => $payload,
-                'http_error' => curl_errno($ch),
-            ], __FILE__, __LINE__);
-        }
-
-        curl_close($ch);
     }
 }
