@@ -165,7 +165,7 @@ class action_plugin_slacknotifier extends ActionPlugin
         $result = curl_exec($ch);
 
         if ($result === false) {
-            Logger::error('Error posting to Slack', [
+            Logger::error('Error posting to Discord', [
                 'resp_body' => curl_error($ch),
                 'result' => $payload,
                 'http_error' => curl_errno($ch),
