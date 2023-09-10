@@ -1,6 +1,6 @@
 <?php
 /**
- * DokuWiki Plugin Slack Notifier (Action Component)
+ * DokuWiki Plugin Discord Notifier (Action Component)
  *
  * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -10,13 +10,13 @@ use dokuwiki\Extension\Event;
 use dokuwiki\Extension\EventHandler;
 use dokuwiki\HTTP\DokuHTTPClient;
 use dokuwiki\Logger;
-use dokuwiki\plugin\slacknotifier\event\PageMoveEvent;
-use dokuwiki\plugin\slacknotifier\event\PageSaveEvent;
-use dokuwiki\plugin\slacknotifier\helper\Config;
-use dokuwiki\plugin\slacknotifier\helper\Context;
-use dokuwiki\plugin\slacknotifier\helper\Formatter;
+use dokuwiki\plugin\fsdiscordnotifier\event\PageMoveEvent;
+use dokuwiki\plugin\fsdiscordnotifier\event\PageSaveEvent;
+use dokuwiki\plugin\fsdiscordnotifier\helper\Config;
+use dokuwiki\plugin\fsdiscordnotifier\helper\Context;
+use dokuwiki\plugin\fsdiscordnotifier\helper\Formatter;
 
-class action_plugin_slacknotifier extends ActionPlugin
+class action_plugin_fsdiscordnotifier extends ActionPlugin
 {
     /** @var Event[] */
     private $changes = [];
