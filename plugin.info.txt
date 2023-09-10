@@ -1,7 +1,7 @@
-base   slacknotifier
-author glen
-email  glen@delfi.ee
-date   2023-05-11
-name   Slack Notifier
-desc   A DokuWiki plugin that notifies a Slack channel of page edits
-url    https://www.dokuwiki.org/plugin:slacknotifier
+base   fsdiscordnotifier
+author Miro Collas
+email  Miro.Collas@phoenixviewer.com
+date   2023-09-10
+name   FS Discord Notifier
+desc   A DokuWiki plugin that notifies a Discord channel of page edits
+url    https://github.com/Miro-Collas/dokuwiki-plugin-fs-discord-notifier
