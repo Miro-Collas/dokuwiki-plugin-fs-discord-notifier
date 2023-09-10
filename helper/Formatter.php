@@ -29,47 +29,27 @@ class Formatter
         $page = $event->id;
         $link = $this->buildUrl($page, $event->newRevision);
         // $title = "{$username} {$action} page <{$link}|{$page}>";
-        $title = "{$username} {$action} page [__{$page}__]({$link})";
+        $title = "{$username} {$action} page: {$link}";
+        $description = " ";
         if ($eventType !== 'delete') {
             $oldRev = $event->oldRevision;
             if ($oldRev) {
                 $diffURL = $this->buildUrl($page, $event->newRevision, $event->oldRevision);
                 // $title .= " (<{$diffURL}|Compare changes>)";
-                $title .= " ([Compare changes]({$diffURL})";
+                $description = "Compare changes: {$diffURL}";
             }
         }
         $footer = array ( "text" => "Dokuwiki FS DiscordNotifier" );
 
         if ($event->summary && $this->config->show_summary) {
-            $body = "{$event->summary}\n- {$username}";
-            $formatted = array( "embeds" =>
-                array (
-                    ["title" => $title, "description" => $body, "footer" => $footer]
-                ),
-            );
+            $description .= "\n{$event->summary}\n- {$username}";
         }
+        $formatted = array( "embeds" =>
+            array (
+                ["title" => $title, "description" => $description, "footer" => $footer]
+            ),
+        );
         else
-        {
-            $formatted = array( "embeds" =>
-                array (
-                    ["title" => $title, "footer" => $footer]
-                ),
-            );
-        }
-
-/*
-        $formatted = ['text' => $title];
-        if ($event->summary && $this->config->show_summary) {
-            $formatted['attachments'] = [
-                [
-                    'fallback' => 'Change summary',
-                    'title' => 'Summary',
-                    'text' => "{$event->summary}\n- {$username}",
-                ],
-            ];
-        }
-*/
-
         return $formatted;
     }
 /*
