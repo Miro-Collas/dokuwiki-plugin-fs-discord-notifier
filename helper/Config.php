@@ -1,6 +1,6 @@
 <?php
 
-namespace dokuwiki\plugin\slacknotifier\helper;
+namespace dokuwiki\plugin\fsdiscordnotifier\helper;
 
 use dokuwiki\Extension\PluginInterface;
 
