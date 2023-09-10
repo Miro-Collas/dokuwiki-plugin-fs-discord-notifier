@@ -14,3 +14,4 @@ Download from the repo, install manually into Dokuwiki.
 
 ## Credits
 https://github.com/glensc for https://github.com/glensc/dokuwiki-plugin-slacknotifier, on which this is heavily based.
+(I had to mirror the repo, as I had already made a fork for the purpose of submitting a PR.)
