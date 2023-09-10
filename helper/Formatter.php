@@ -49,7 +49,6 @@ class Formatter
                 ["title" => $title, "description" => $description, "footer" => $footer]
             ),
         );
-        else
         return $formatted;
     }
 /*
