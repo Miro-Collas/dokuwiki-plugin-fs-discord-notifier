@@ -40,7 +40,10 @@ class Config
         }
 
         $namespaces = explode(',', $this->namespaces);
-
+        // Handle root namespace
+        if ($namespace === '') {
+            return in_array(':', $namespaces, true);
+        }
         return in_array($namespace, $namespaces, true);
     }
 }
