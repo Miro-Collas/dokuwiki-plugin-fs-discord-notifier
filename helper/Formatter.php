@@ -50,10 +50,13 @@ class Formatter
 
         return $formatted;
     }
+/*
+    wl() - https://xref.dokuwiki.org/reference/dokuwiki/nav.html?inc/common.php.source.html#l493
+*/
 
     private function buildUrl(string $page, int $rev, ?int $oldRev = null): ?string
     {
-        $urlParameters = $oldRev ? "do=diff&rev2[0]=$oldRev&rev2[1]=$rev" : "rev=$rev";
+        $urlParameters = $oldRev ? "do=diff&rev2[0]=$oldRev&rev2[1]=$rev" : "";
 
         return wl($page, $urlParameters, true, '&');
     }
